@@ -6,3 +6,9 @@ int countDistinct(int arr[] , int n)
 		s.insert(arr[i]);
 	return s.size();
 }
+
+//shorter implementation(int arr[] , int n)
+{
+	unordered_set<int> s(arr , arr + n);
+	return s.size();
+}
