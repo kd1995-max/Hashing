@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int size , sum;
+	cin >> size >> sum;
+	vector<int> vec(size);
+	for (int i = 0; i < vec.size(); i++)
+	{
+		/* code */
+		cin >> vec[i];
+	}
+	unordered_set<int> us(vec.begin() , vec.end());
+	for (int i = 0; i < size; i++)
+	{
+		/* code */
+		if( us.find(sum - vec[i]) != us.end())
+		{cout << "( " << vec[i] << " , " << sum - vec[i] << " )"<< endl ; break;}
+	}
+	
+	return 0;
+}
+
+// Input
+// 5
+// 9
+// 1 2 3 7 2
+// output
+// ( 2 , 7 )
