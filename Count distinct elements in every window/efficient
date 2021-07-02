@@ -1,0 +1,27 @@
+vector <int> countDistinct (int arr[], int n, int k)
+    {
+        //code here.
+        vector<int> vec;
+        unordered_map<int, int> um;
+        
+        //calculating first window__________
+        for(int i = 0; i < k; i++)
+        um[arr[i]]++;
+        vec.push_back(um.size());
+        //__________________________________
+        
+        for(int i = k; i < n; i++)
+        {
+            
+            um[arr[i - k]]--;
+            
+            if(um[arr[i - k]] == 0)
+            um.erase(arr[i - k]);
+            
+            um[arr[i]]++;
+            
+            vec.push_back(um.size());
+        }
+        
+        return vec;
+    }
