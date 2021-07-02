@@ -1,0 +1,17 @@
+int findLongestConseqSubseq(int arr[], int n)
+    {
+      unordered_set<int> us(arr , arr + n);
+      int res = 1;
+      for(auto a : us)
+      {
+          if(us.find(a - 1) == us.end())
+          {
+              int curr = 1;
+              while(us.find(a + curr) != us.end())
+              curr++;
+              
+              res = max(res , curr);
+          }
+      }
+      return res;
+    }
